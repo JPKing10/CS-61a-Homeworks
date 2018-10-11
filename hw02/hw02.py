@@ -89,16 +89,13 @@ def accumulate(combiner, base, n, term):
     72
     """
     "*** YOUR CODE HERE ***"
+
     if n == 0:
         return base
-    if base == 0:
-        total = 1 # prevents 0 result if base is 0
-    else:
-        total = base # use rather than max(base, 1) to support negative base
-    while 0 < n:
-        total = combiner(total, term(n))
-        n -= 1
-    return total
+    total = term(n)
+    for i in range(1, n):
+        total = combiner(total, term(i))
+    return combiner(total, base) if base != 0 else total
 
 def summation_using_accumulate(n, term):
     """Returns the sum of term(1) + ... + term(n). The implementation
@@ -159,6 +156,8 @@ def make_repeater(f, n):
     5
     """
     "*** YOUR CODE HERE ***"
+    #return compose1(f, make_repeater(f, n-1)) if 0 < n else lambda x: x
+    return lambda x: accumulate(compose1, identity, n, (lambda y: f))(x)
 
 # Q5
 def zero(f):
