@@ -89,6 +89,16 @@ def accumulate(combiner, base, n, term):
     72
     """
     "*** YOUR CODE HERE ***"
+    if n == 0:
+        return base
+    if base == 0:
+        total = 1 # prevents 0 result if base is 0
+    else:
+        total = base # use rather than max(base, 1) to support negative base
+    while 0 < n:
+        total = combiner(total, term(n))
+        n -= 1
+    return total
 
 def summation_using_accumulate(n, term):
     """Returns the sum of term(1) + ... + term(n). The implementation
@@ -104,6 +114,7 @@ def summation_using_accumulate(n, term):
     True
     """
     "*** YOUR CODE HERE ***"
+    return accumulate(add, 0, n, term)
 
 def product_using_accumulate(n, term):
     """An implementation of product using accumulate.
@@ -118,7 +129,7 @@ def product_using_accumulate(n, term):
     True
     """
     "*** YOUR CODE HERE ***"
-
+    return accumulate(mul, 0, n, term)
 
 
 ###################
