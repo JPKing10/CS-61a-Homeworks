@@ -51,6 +51,11 @@ def product(n, term):
     True
     """
     "*** YOUR CODE HERE ***"
+    sum = 1
+    while 0 < n:
+        sum *= term(n)
+        n -= 1
+    return sum
 
 def factorial(n):
     """Return n factorial for n >= 0 by calling product.
@@ -64,6 +69,7 @@ def factorial(n):
     True
     """
     "*** YOUR CODE HERE ***"
+    return product(n, identity)
 
 # Q3
 def accumulate(combiner, base, n, term):
