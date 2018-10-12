@@ -158,7 +158,7 @@ def make_repeater(f, n):
     """
     "*** YOUR CODE HERE ***"
     #return compose1(f, make_repeater(f, n-1)) if 0 < n else lambda x: x
-    return lambda x: accumulate(compose1, identity, n, (lambda y: f))(x)
+    return accumulate(compose1, identity, n, (lambda y: f))
 
 # Q5
 def zero(f):
