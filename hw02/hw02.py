@@ -214,7 +214,7 @@ def mul_church(m, n):
     12
     """
     "*** YOUR CODE HERE ***"
-    return lambda f: lambda x: m(n(f))(x)
+    return lambda f: m(n(f))
 
 def pow_church(m, n):
     """Return the Church numeral m ** n, for Church numerals m and n.
@@ -225,4 +225,4 @@ def pow_church(m, n):
     9
     """
     "*** YOUR CODE HERE ***"
-    return lambda f: lambda x: n(m)(f)(x) # from def nfx = f^n x
+    return n(m) # from def nfx = f^n x
