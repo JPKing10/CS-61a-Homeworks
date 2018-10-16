@@ -72,6 +72,16 @@ def pingpong(n):
     True
     """
     "*** YOUR CODE HERE ***"
+    def nth_term(term, direction, pos, n):
+        if pos < n:
+            if pos % 7 == 0 or has_seven(pos):
+                return nth_term(term - direction, -direction, pos+1, n)
+            else:
+                return nth_term(term + direction, direction, pos+1, n)
+        return term
+    return nth_term(1, 1, 1, n)
+            
+        
 
 def accumulate(combiner, base, n, term):
     """Return the result of combining the first n terms in a sequence and base.
