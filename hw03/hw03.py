@@ -35,6 +35,10 @@ def has_seven(k):
     True
     """
     "*** YOUR CODE HERE ***"
+    if 0 < k and (k % 10 == 7 or has_seven(k // 10)): 
+        return True
+
+    return False
 
 def pingpong(n):
     """Return the nth element of the ping-pong sequence.
