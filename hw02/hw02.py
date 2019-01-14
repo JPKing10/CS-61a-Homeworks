@@ -26,7 +26,7 @@ def make_adder(n):
     >>> make_adder(1)(2)
     3
     """
-    return lambda x: n + x
+    return lambda x: n + x //
 
 # Q2
 def product(n, term):
